@@ -1,12 +1,19 @@
+use crate::api::actions::create::create;
+use crate::enums::WorkItemStatus;
 use clap::Parser;
+use std::str::FromStr;
 
 mod api;
 mod enums;
 mod structs;
 
-fn main() {
+fn main() -> Result<(), String> {
     let args = Args::parse();
-    println!("{:?}", args);
+    let status = WorkItemStatus::from_str(&args.status)?;
+    let work_item = create(&args.title, args.volume, status)?;
+    println!("{}", work_item);
+
+    Ok(())
 }
 
 /// CLI Tool for planner

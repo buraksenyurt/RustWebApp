@@ -1,6 +1,8 @@
 use super::super::enums::WorkItemStatus;
 use super::base::Base;
+use serde::{Deserialize, Serialize};
 
+#[derive(PartialEq, Debug, Serialize, Deserialize, Clone)]
 pub struct Completed {
     pub base: Base,
 }

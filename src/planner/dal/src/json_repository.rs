@@ -2,6 +2,7 @@ use serde::Serialize;
 use serde::de::DeserializeOwned;
 use std::collections::HashMap;
 use std::env;
+use std::fmt::Debug;
 use std::fs::{File, OpenOptions};
 use std::io::{Read, Write};
 
@@ -57,7 +58,7 @@ where
 
 pub fn save_single<T>(key: &str, work_item: &T) -> Result<(), String>
 where
-    T: Serialize + DeserializeOwned + Clone,
+    T: Serialize + DeserializeOwned + Clone + Debug,
 {
     let mut work_items = get_all::<T>().unwrap_or_else(|_| HashMap::new());
     work_items.insert(key.to_string(), work_item.clone());
