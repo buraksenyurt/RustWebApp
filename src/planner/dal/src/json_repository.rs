@@ -13,6 +13,7 @@ fn get_store() -> Result<File, String> {
         .read(true)
         .write(true)
         .create(true)
+        .truncate(true)
         .open(&file_path)
         .map_err(|e| e.to_string())?;
 
@@ -69,7 +70,7 @@ pub fn delete<T>(key: &str) -> Result<(), String>
 where
     T: Serialize + DeserializeOwned + Clone,
 {
-    let mut work_items = get_all::<T>().unwrap_or(HashMap::new());
+    let mut work_items = get_all::<T>().unwrap_or_default();
     work_items.remove(key);
     save_all(&work_items)
 }

@@ -7,17 +7,17 @@ pub fn create(title: &str, size: u8, status: WorkItemStatus) -> Result<ActionTyp
     match status {
         WorkItemStatus::Ready => {
             let wi = Ready::new(title, size);
-            let _ = save_single(&title.to_string(), &wi)?;
-            Ok(ActionTypes::Ready(Ready::new(&title, size)))
+            save_single(title, &wi)?;
+            Ok(ActionTypes::Ready(Ready::new(title, size)))
         }
         WorkItemStatus::InProgress => {
             let wi = InProgress::new(title, size);
-            let _ = save_single(&title.to_string(), &wi)?;
+            save_single(title, &wi)?;
             Ok(ActionTypes::InProgress(InProgress::new(title, size)))
         }
         WorkItemStatus::Completed => {
             let wi = Completed::new(title, size);
-            let _ = save_single(&title.to_string(), &wi)?;
+            save_single(title, &wi)?;
             Ok(ActionTypes::Completed(Completed::new(title, size)))
         }
     }
@@ -56,7 +56,7 @@ impl Display for ActionTypes {
 
 #[cfg(test)]
 mod tests {
-    use crate::api::actions::create::{ActionTypes, create};
+    use crate::api::actions::create::create;
     use crate::enums::WorkItemStatus;
 
     #[test]
