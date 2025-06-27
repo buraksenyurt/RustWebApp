@@ -13,8 +13,7 @@ Günden günde gelişen proje yapısı aşağıdaki ağaç yapısı ile ifade ed
 - **Root**
   - **Core** (Binary. CLI ile Work Item ekleme, silme, listeleme gibi özellikler de içerir, api desteği sunar)
   - **Dal** (Library. Data Access Layer görevini üstlenir)
-  - **Network**
-    - **Server** (Binary. Actix-Web framework'ü kullanan, asenkron operasyonlarda Tokio küfesi ile çalışan web server)
+  - **Server** (Binary. Actix-Web framework'ü kullanan, asenkron operasyonlarda Tokio küfesi ile çalışan web server)
 
 ## Day_00
 
