@@ -22,7 +22,7 @@ mod tests {
     use crate::enums::WorkItemStatus;
 
     #[test]
-    fn work_item_status_convert_to_right_string_test() {
+    fn work_item_status_convert_to_correct_string_test() {
         let status = WorkItemStatus::Ready;
         assert_eq!(status.to_string(), "Ready");
 

@@ -6,10 +6,10 @@ pub struct Completed {
 }
 
 impl Completed {
-    pub fn new(title: String, size: u8) -> Self {
+    pub fn new(title: &str, size: u8) -> Self {
         Completed {
             base: Base {
-                title,
+                title: title.to_string(),
                 size,
                 status: WorkItemStatus::Completed,
             },
