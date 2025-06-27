@@ -1,11 +1,13 @@
+mod api;
+
 use actix_web::{App, HttpRequest, HttpServer, Responder, web};
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
-    println!("Server started at http://localhost:8080");
+    println!("Server started at http://localhost:3000");
     HttpServer::new(|| App::new().route("/", web::get().to(index)))
         .workers(8)
-        .bind("127.0.0.1:8080")?
+        .bind("127.0.0.1:3000")?
         .run()
         .await
 }
