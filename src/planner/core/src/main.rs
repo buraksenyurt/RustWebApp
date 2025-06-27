@@ -14,15 +14,19 @@ fn main() -> Result<(), String> {
             let status = WorkItemStatus::from_str(&args.status)?;
             let work_item = create(&args.title, args.volume, status)?;
             println!("{}", work_item);
-        },
-        Commands::List=>{}
+        }
+        Commands::List => {}
     }
 
     Ok(())
 }
 
 #[derive(Parser, Debug)]
-#[command(version="1.0",about="Planner CLI", long_about = "This is CLI tool for Planner Web Application. You can manage your works.")]
+#[command(
+    version = "1.0",
+    about = "Planner CLI",
+    long_about = "This is CLI tool for Planner Web Application. You can manage your works."
+)]
 struct Cli {
     #[command(subcommand)]
     command: Commands,
@@ -33,7 +37,7 @@ enum Commands {
     /// Create a new work item
     Create(CreateArgs),
     /// Show all list items
-    List
+    List,
 }
 
 #[derive(Args, Debug)]
