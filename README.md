@@ -20,8 +20,8 @@ CLI komutları ile Work Item'lar eklenebilmelidir.
 
 ```bash
 #core programında
-cargo run -- -t "Study 25 minutes for Rust" -v 5 -s "completed"
-cargo run -- -t "Run for 10 Km in 2 hour" -v 8 -s "Ready"
+cargo run -- create -t "Study 25 minutes for Rust" -v 5 -s "completed"
+cargo run -- create -t "Run for 10 Km in 2 hour" -v 8 -s "Ready"
 ```
 
 ## Day_01
