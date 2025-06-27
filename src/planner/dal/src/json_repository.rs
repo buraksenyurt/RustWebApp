@@ -13,7 +13,6 @@ fn get_store() -> Result<File, String> {
         .read(true)
         .write(true)
         .create(true)
-        .truncate(true)
         .open(&file_path)
         .map_err(|e| e.to_string())?;
 
