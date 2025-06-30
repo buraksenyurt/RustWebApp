@@ -30,6 +30,9 @@ cargo run -- create -t "Read 15 pages from novel" -v 1 -s "InProgress"
 #Web Server'ı çalıştırmak için
 # root klasörde
 cargo run -p server
+
+# veya server klasöründeyken
+cargo run
 ```
 
 ## Day_01
@@ -38,5 +41,7 @@ Server çalıştırıldıktan sonra index sayfasına ulaşıldığında, CLI uyg
 
 Örnek;
 
-![Runtime_01.png](Runtime_01.png)
+![Runtime_01.png](./Runtime_01.png)
+
+Ayrıca yeni bir kayıt eklemek için POST ve key bazlı GET işlemleri yapılabilmelidir. API tarafı için gerekli örnek request'ler [Postman Collection dosyasında](./Rust%20Web%20App.postman_collection.json) yer almaktadır.
 
