@@ -22,7 +22,10 @@ CLI komutları ile Work Item'lar eklenebilmelidir. Ayrıca web server başlatıl
 ```bash
 #core programında
 cargo run -- create -t "Study 25 minutes for Rust" -v 5 -s "completed"
+cargo run -- create -t "Develop issue request form" -v 13 -s "completed"
+cargo run -- create -t "Clean the room" -v 3 -s "completed"
 cargo run -- create -t "Run for 10 Km in 2 hour" -v 8 -s "Ready"
+cargo run -- create -t "Read 15 pages from novel" -v 1 -s "InProgress"
 
 #Web Server'ı çalıştırmak için
 # root klasörde
@@ -30,4 +33,10 @@ cargo run -p server
 ```
 
 ## Day_01
+
+Server çalıştırıldıktan sonra index sayfasına ulaşıldığında, CLI uygulamasında örnek olarak eklenmiş work item listeleri statü bilgisine göre ayrılmış şekilde listelenebilmelidir.
+
+Örnek;
+
+![Runtime_01.png](Runtime_01.png)
 
