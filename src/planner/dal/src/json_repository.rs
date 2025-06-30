@@ -19,7 +19,7 @@ fn get_store() -> Result<File, String> {
     Ok(f)
 }
 
-pub fn get_all<T>() -> Result<HashMap<String, T>, String>
+pub fn select_all<T>() -> Result<HashMap<String, T>, String>
 where
     T: DeserializeOwned,
 {
@@ -33,11 +33,11 @@ where
     Ok(work_items)
 }
 
-pub fn get_by_id<T>(key: &str) -> Result<T, String>
+pub fn select_by_id<T>(key: &str) -> Result<T, String>
 where
     T: DeserializeOwned + Clone,
 {
-    let work_items = get_all::<T>()?;
+    let work_items = select_all::<T>()?;
     match work_items.get(key) {
         Some(wi) => Ok(wi.clone()),
         None => Err(format!("Work item with key '{}' not found", key)),
@@ -60,7 +60,7 @@ pub fn save_single<T>(key: &str, work_item: &T) -> Result<(), String>
 where
     T: Serialize + DeserializeOwned + Clone + Debug,
 {
-    let mut work_items = get_all::<T>().unwrap_or_else(|_| HashMap::new());
+    let mut work_items = select_all::<T>().unwrap_or_else(|_| HashMap::new());
     work_items.insert(key.to_string(), work_item.clone());
     save_all(&work_items)
 }
@@ -69,7 +69,7 @@ pub fn delete<T>(key: &str) -> Result<(), String>
 where
     T: Serialize + DeserializeOwned + Clone,
 {
-    let mut work_items = get_all::<T>().unwrap_or_default();
+    let mut work_items = select_all::<T>().unwrap_or_default();
     work_items.remove(key);
     save_all(&work_items)
 }

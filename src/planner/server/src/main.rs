@@ -1,5 +1,6 @@
 mod api;
 
+use crate::api::actions::get::fetch_all;
 use actix_web::{App, HttpRequest, HttpServer, Responder, web};
 
 #[tokio::main]
@@ -13,5 +14,5 @@ async fn main() -> std::io::Result<()> {
 }
 
 async fn index(_request: HttpRequest) -> impl Responder {
-    "Planner Main Page"
+    fetch_all().await
 }
