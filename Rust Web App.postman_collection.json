@@ -26,6 +26,50 @@
 			"response": []
 		},
 		{
+			"name": "Get All Work Items By Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/filter/by/status/completed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"filter",
+						"by",
+						"status",
+						"completed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Work Items By Size Grater and Equal Than",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/filter/by/size/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"filter",
+						"by",
+						"size",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get Work Item By Key(Title)",
 			"request": {
 				"method": "GET",
