@@ -1,7 +1,7 @@
 mod api;
 
 use crate::api::actions::create::add;
-use crate::api::actions::get::{fetch_all, fetch_by_id};
+use crate::api::actions::get::{fetch_all, fetch_all_by_status, fetch_by_id};
 use actix_web::{App, HttpRequest, HttpServer, Responder, web};
 use core::structs::WorkItem;
 
@@ -12,6 +12,10 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .route("/", web::get().to(get_all_work_items))
+            .route(
+                "/filter/{status}",
+                web::get().to(get_all_work_items_by_staus),
+            )
             .route("/{title}", web::get().to(get_work_item_by_id))
             .route("/", web::post().to(create_work_item))
     })
@@ -23,6 +27,11 @@ async fn main() -> std::io::Result<()> {
 
 async fn get_all_work_items(_request: HttpRequest) -> impl Responder {
     fetch_all().await
+}
+
+async fn get_all_work_items_by_staus(path: web::Path<String>) -> impl Responder {
+    let status = path.into_inner();
+    fetch_all_by_status(&status).await
 }
 
 async fn get_work_item_by_id(path: web::Path<String>) -> impl Responder {
