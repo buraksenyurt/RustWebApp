@@ -1,5 +1,6 @@
 use crate::api::actions::create::create;
 use crate::enums::WorkItemStatus;
+use crate::structs::WorkItem;
 use clap::{Args, Parser, Subcommand};
 use std::str::FromStr;
 
@@ -12,8 +13,13 @@ fn main() -> Result<(), String> {
     match &cli.command {
         Commands::Create(args) => {
             let status = WorkItemStatus::from_str(&args.status)?;
-            let work_item = create(&args.title, args.volume, status)?;
-            println!("{}", work_item);
+            let work_item = WorkItem {
+                title: args.title.to_string(),
+                size: args.volume,
+                status,
+            };
+            let created = create(work_item)?;
+            println!("{}", created);
         }
         Commands::List => {}
     }

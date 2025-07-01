@@ -1,10 +1,18 @@
 use actix_web::HttpResponse;
-use core::api::actions::get::get_all;
+use core::api::actions::get::*;
 
 pub async fn fetch_all() -> HttpResponse {
-    let work_items = match get_all().await {
+    let result = match get_all().await {
         Ok(work_items) => work_items,
         Err(e) => return HttpResponse::InternalServerError().json(e),
     };
-    HttpResponse::Ok().json(work_items)
+    HttpResponse::Ok().json(result)
+}
+
+pub async fn fetch_by_id(title: &str) -> HttpResponse {
+    let result = match get_by_key(title).await {
+        Ok(work_item) => work_item,
+        Err(e) => return HttpResponse::InternalServerError().json(e),
+    };
+    HttpResponse::Ok().json(result)
 }
