@@ -64,14 +64,14 @@ Hata nesnelerinin modüllere uyarlanmasını takiben server api tarafındaki tü
 
 ![Runtime_00.png](Runtime_00.png)
 
-![Runtime_02.png](Runtime_01.png)
+![Runtime_02.png](Runtime_02.png)
 
-![Runtime_03.png](Runtime_02.png)
+![Runtime_03.png](Runtime_03.png)
 
-![Runtime_04.png](Runtime_03.png)
+![Runtime_04.png](Runtime_04.png)
 
-![Runtime_05.png](Runtime_04.png)
+![Runtime_05.png](Runtime_05.png)
 
-![Runtime_06.png](Runtime_05.png)
+![Runtime_06.png](Runtime_06.png)
 
-![Runtime_07.png](Runtime_06.png)
+![Runtime_07.png](Runtime_07.png)
