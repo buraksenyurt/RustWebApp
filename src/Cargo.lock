@@ -434,6 +434,7 @@ dependencies = [
  "dal",
  "serde",
  "shared",
+ "tokio",
 ]
 
 [[package]]

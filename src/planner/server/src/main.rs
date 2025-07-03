@@ -1,8 +1,8 @@
 mod api;
-mod router;
 
-use crate::router::*;
-use actix_web::{App, HttpServer, web};
+use crate::api::actions::{create, delete, get, update};
+use actix_web::web::{delete, get, post, put};
+use actix_web::{App, HttpServer};
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
@@ -10,17 +10,19 @@ async fn main() -> std::io::Result<()> {
     println!("Server started at http://localhost:3000");
     HttpServer::new(|| {
         App::new()
-            .route("/", web::get().to(get_all_work_items))
+            .route("/", get().to(get::fetch_all))
             .route(
                 "filter/by/status/{status}",
-                web::get().to(get_all_work_items_by_status),
+                get().to(get::fetch_all_by_status),
             )
             .route(
                 "/filter/by/size/{size}",
-                web::get().to(get_all_work_items_by_size_grater_than),
+                get().to(get::fetch_all_by_size_grater_than),
             )
-            .route("/{title}", web::get().to(get_work_item_by_id))
-            .route("/", web::post().to(create_work_item))
+            .route("/{title}", get().to(get::fetch_by_id))
+            .route("/", post().to(create::create_work_item))
+            .route("/", put().to(update::update_work_item))
+            .route("/{title}", delete().to(delete::delete_by_title))
     })
     .workers(8)
     .bind("127.0.0.1:3000")?

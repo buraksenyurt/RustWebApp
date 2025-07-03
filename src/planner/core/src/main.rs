@@ -9,7 +9,8 @@ mod api;
 mod enums;
 mod structs;
 
-fn main() -> Result<(), ServiceError> {
+#[tokio::main]
+async fn main() -> Result<(), ServiceError> {
     let cli = Cli::parse();
     match &cli.command {
         Commands::Create(args) => {
@@ -24,7 +25,7 @@ fn main() -> Result<(), ServiceError> {
                 size: args.volume,
                 status: status?,
             };
-            let created = create(work_item)?;
+            let created = create(work_item).await?;
             println!("{}", created);
         }
         Commands::List => {}
