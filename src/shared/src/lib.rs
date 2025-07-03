@@ -73,3 +73,20 @@ mod tests {
         );
     }
 }
+
+#[cfg(all(test, feature = "actix"))]
+mod actix_tests {
+    use super::*;
+    use actix_web::ResponseError;
+    use actix_web::http::StatusCode;
+
+    #[test]
+    fn service_error_response_returns_correct_status() {
+        let error = ServiceError::new(
+            ServiceErrorStatus::Unauthorized,
+            "Access denied".to_string(),
+        );
+        let response = error.error_response();
+        assert_eq!(response.status(), StatusCode::UNAUTHORIZED);
+    }
+}

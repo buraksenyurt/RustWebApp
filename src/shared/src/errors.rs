@@ -1,5 +1,5 @@
 #[cfg(feature = "actix")]
-use actix_web::{HttpResponse, ResponseError};
+use actix_web::{HttpResponse, error::ResponseError, http::StatusCode};
 use serde::{Deserialize, Serialize};
 use std::fmt::Display;
 use thiserror::Error;

@@ -50,3 +50,10 @@ Ayrıca yeni bir kayıt eklemek için POST ve key bazlı GET işlemleri yapılab
 Hata nesnelerinin tüm modüllerde ortak yönetimini kolaylaştırmak için genel bir modülün yazılması ele alınır. Bu amaçla planner içerisindeki rust paketleri tarafından da ortak kullanılabilecek shared isimli üst paket kullanılmaktadır.
 
 Gün sonunda servis bazlı hata mesajlarının shared paketindeki error türü ile yönetilmesi beklenir.
+
+```bash
+# feature bazlı testleri yürütmek için
+# (Örneğin 'actix' feature'ına dahil testleri)
+# aşağıdaki cargo komutu ile ilerlenebilir
+cargo test --features actix
+```
