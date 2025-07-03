@@ -89,6 +89,25 @@
 			"response": []
 		},
 		{
+			"name": "Delete Work Item By Key(Title)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Add login screen to frontend",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Add login screen to frontend"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Create new Work Item",
 			"request": {
 				"method": "POST",
@@ -96,6 +115,34 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"title\": \"Add login screen to frontend\",\r\n    \"size\": 8,\r\n    \"status\": \"Ready\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Work Item",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Add login screen to frontend\",\r\n    \"size\": 5,\r\n    \"status\": \"Completed\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

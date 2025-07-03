@@ -57,3 +57,21 @@ Gün sonunda servis bazlı hata mesajlarının shared paketindeki error türü i
 # aşağıdaki cargo komutu ile ilerlenebilir
 cargo test --features actix
 ```
+
+## Day_03
+
+Hata nesnelerinin modüllere uyarlanmasını takiben server api tarafındaki tüm CRUD _(Create, Read, Update, Delete)_ operasyonlarının başarılı şekilde icra edilmesi beklenir.
+
+![Runtime_00.png](Runtime_00.png)
+
+![Runtime_02.png](Runtime_01.png)
+
+![Runtime_03.png](Runtime_02.png)
+
+![Runtime_04.png](Runtime_03.png)
+
+![Runtime_05.png](Runtime_04.png)
+
+![Runtime_06.png](Runtime_05.png)
+
+![Runtime_07.png](Runtime_06.png)
