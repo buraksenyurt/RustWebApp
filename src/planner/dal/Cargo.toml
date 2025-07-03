@@ -5,8 +5,9 @@ edition = "2024"
 
 # Build işleminde json-store özelliği kullanılırsa serde_json ve serde paketleri dahil edilir.
 [features]
-json-store = ["serde_json","serde"]
+json-store = ["serde_json", "serde"]
 
 [dependencies]
-serde = { version = "1.0.219",optional=true }
-serde_json = { version = "1.0.140",optional = true }
+serde = { version = "1.0.219", optional = true }
+serde_json = { version = "1.0.140", optional = true }
+shared = { path = "../../shared" }

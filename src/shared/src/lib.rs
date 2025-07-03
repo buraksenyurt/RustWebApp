@@ -1,6 +1,6 @@
 use crate::errors::{ServiceError, ServiceErrorStatus};
 
-mod errors;
+pub mod errors;
 
 #[allow(dead_code)]
 fn simulate_get_categories(category_id: u32) -> Result<String, ServiceError> {
