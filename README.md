@@ -41,7 +41,12 @@ Server çalıştırıldıktan sonra index sayfasına ulaşıldığında, CLI uyg
 
 Örnek;
 
-![Runtime_01.png](./Runtime_01.png)
+![Runtime_01.png](Runtime_01.png)
 
 Ayrıca yeni bir kayıt eklemek için POST ve key bazlı GET işlemleri yapılabilmelidir. API tarafı için gerekli örnek request'ler [Postman Collection dosyasında](./Rust%20Web%20App.postman_collection.json) yer almaktadır.
 
+## Day_02
+
+Hata nesnelerinin tüm modüllerde ortak yönetimini kolaylaştırmak için genel bir modülün yazılması ele alınır. Bu amaçla planner içerisindeki rust paketleri tarafından da ortak kullanılabilecek shared isimli üst paket kullanılmaktadır.
+
+Gün sonunda servis bazlı hata mesajlarının shared paketindeki error türü ile yönetilmesi beklenir.

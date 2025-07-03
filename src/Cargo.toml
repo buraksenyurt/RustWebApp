@@ -1,4 +1,4 @@
 [workspace]
 resolver = "2"
 
-members = ["planner/core", "planner/dal", "planner/server"]
+members = ["planner/core", "planner/dal", "planner/server", "shared"]
