@@ -40,7 +40,7 @@ where
     let work_items: HashMap<String, T> = serde_json::from_str(&contents).map_err(|e| {
         ServiceError::new(
             ServiceErrorStatus::Unknown,
-            "Serialization error".to_string(),
+            format!("Serialization error: {}", e),
         )
     })?;
     Ok(work_items)

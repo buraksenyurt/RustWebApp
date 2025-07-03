@@ -2,21 +2,27 @@ use crate::api::actions::create::create;
 use crate::enums::WorkItemStatus;
 use crate::structs::WorkItem;
 use clap::{Args, Parser, Subcommand};
+use shared::errors::{ServiceError, ServiceErrorStatus};
 use std::str::FromStr;
 
 mod api;
 mod enums;
 mod structs;
 
-fn main() -> Result<(), String> {
+fn main() -> Result<(), ServiceError> {
     let cli = Cli::parse();
     match &cli.command {
         Commands::Create(args) => {
-            let status = WorkItemStatus::from_str(&args.status)?;
+            let status = WorkItemStatus::from_str(&args.status).map_err(|e| {
+                ServiceError::new(
+                    ServiceErrorStatus::Unknown,
+                    format!("Converting from string error, {}", e),
+                )
+            });
             let work_item = WorkItem {
                 title: args.title.to_string(),
                 size: args.volume,
-                status,
+                status: status?,
             };
             let created = create(work_item)?;
             println!("{}", created);
