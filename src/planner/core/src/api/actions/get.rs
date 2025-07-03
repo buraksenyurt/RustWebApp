@@ -7,7 +7,7 @@ pub async fn get_all() -> Result<WorkItems, ServiceError> {
 }
 
 pub async fn get_by_key(title: &str) -> Result<WorkItem, ServiceError> {
-    Ok(WorkItem::from(select_by_id(title)?))
+    select_by_id(title)
 }
 
 pub async fn get_all_by_status(status: &str) -> Result<Vec<WorkItem>, ServiceError> {

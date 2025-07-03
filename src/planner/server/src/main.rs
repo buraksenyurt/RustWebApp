@@ -1,16 +1,12 @@
 mod api;
+mod router;
 
-use crate::api::actions::create::add;
-use crate::api::actions::get::{
-    fetch_all, fetch_all_by_size_grater_than, fetch_all_by_status, fetch_by_id,
-};
-use actix_web::{App, HttpRequest, HttpServer, Responder, web};
-use core::structs::WorkItem;
-use std::str::FromStr;
+use crate::router::*;
+use actix_web::{App, HttpServer, web};
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
-    dotenvy::dotenv().ok().expect("Failed to load .env file");
+    dotenvy::dotenv().expect("Failed to load .env file");
     println!("Server started at http://localhost:3000");
     HttpServer::new(|| {
         App::new()
@@ -30,28 +26,4 @@ async fn main() -> std::io::Result<()> {
     .bind("127.0.0.1:3000")?
     .run()
     .await
-}
-
-async fn get_all_work_items(_request: HttpRequest) -> impl Responder {
-    fetch_all().await
-}
-
-async fn get_all_work_items_by_status(path: web::Path<String>) -> impl Responder {
-    let status = path.into_inner();
-    fetch_all_by_status(&status).await
-}
-
-async fn get_all_work_items_by_size_grater_than(path: web::Path<String>) -> impl Responder {
-    let size = u8::from_str(&path.into_inner()).unwrap_or_default();
-    fetch_all_by_size_grater_than(size).await
-}
-
-async fn get_work_item_by_id(path: web::Path<String>) -> impl Responder {
-    let title = path.into_inner();
-    fetch_by_id(&title).await
-}
-
-async fn create_work_item(body: web::Json<WorkItem>) -> impl Responder {
-    let wi = body.into_inner();
-    add(wi).await
 }
