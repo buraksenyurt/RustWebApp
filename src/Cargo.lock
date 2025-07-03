@@ -1181,6 +1181,7 @@ dependencies = [
  "actix-web",
  "core",
  "dotenvy",
+ "shared",
  "tokio",
 ]
 
