@@ -1,0 +1,16 @@
+{
+  "name": "work_items_web_app",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node esbuild.js",
+    "serve": "serve public"
+  },
+  "dependencies": {
+    "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.5",
+    "esbuild-plugin-vue": "^0.2.4",
+    "serve": "^14.2.4"
+  }
+}
