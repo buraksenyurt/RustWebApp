@@ -1,7 +1,6 @@
 mod api;
 
-use crate::api::actions::{configure_routes, create, delete, get, update};
-use actix_web::web::{delete, get, post, put};
+use crate::api::configure_routes;
 use actix_web::{App, HttpServer};
 
 #[tokio::main]
