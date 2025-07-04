@@ -2,6 +2,7 @@ use crate::api::actions::create::create;
 use crate::enums::WorkItemStatus;
 use crate::structs::WorkItem;
 use clap::{Args, Parser, Subcommand};
+use shared::auth::TokenHeader;
 use shared::errors::{ServiceError, ServiceErrorStatus};
 use std::str::FromStr;
 

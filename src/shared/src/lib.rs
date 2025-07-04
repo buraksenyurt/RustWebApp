@@ -1,5 +1,6 @@
 use crate::errors::{ServiceError, ServiceErrorStatus};
 
+pub mod auth;
 pub mod errors;
 
 #[allow(dead_code)]
