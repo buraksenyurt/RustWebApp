@@ -4,7 +4,7 @@ console.log("App component mounted!");
 
 <template>
   <div>
-    <h1>Work Item List</h1>
-    <p>Loading...</p>
+    <h2>Work Item List</h2>
+    <p>loading content...</p>
   </div>
 </template>

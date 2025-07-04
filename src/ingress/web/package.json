@@ -1,5 +1,5 @@
 {
-  "name": "WorkItemsWebApp",
+  "name": "workitemsweb",
   "version": "1.0.0",
   "scripts": {
     "dev": "./node_modules/.bin/vite",
