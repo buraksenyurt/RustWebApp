@@ -87,6 +87,10 @@ Kitap web uygulaması tarafında React ve ESBuild kullanarak ilerlemekte. Ben fr
 # web klasöründeyken aşağıdaki komut işletilir
 yarn build
 
+# Vue uygulaması backend api ile konuşur. Bu nedenle öncelikle server uygulamasının ayakta olması gerekir
+# planner/server klasöründeyken
+cargo run
+
 # Sonrasında ingress klasöründeyken rust uygulaması başlatılır.
 cargo run
 ```
