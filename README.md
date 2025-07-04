@@ -77,3 +77,7 @@ Hata nesnelerinin modüllere uyarlanmasını takiben server api tarafındaki tü
 ![Runtime_07.png](Runtime_07.png)
 
 Ayrıca header bazlı çalışan basit bir token mekanizması da sisteme entegre edilir.
+
+## Day_04
+
+Vue tabanlı web tarafı geliştirilmeye başlanır. Günün sonunda work item listesinin ana sayfada çıkması beklenir.
