@@ -9,13 +9,24 @@ const loading = ref(true);
 const error = ref<string | null>(null);
 
 onMounted(async () => {
-  const result = await getAll();
-  if ('data' in result) {
-    data.value = result.data;
-  } else {
-    error.value = result.error ?? 'Unknown error';
+  try {
+    const result = await getAll();
+
+    if (result
+        && typeof result === 'object'
+        && 'data' in result) {
+      data.value = result.data;
+    } else if (result && 'error' in result) {
+      error.value = result.error ?? 'Unknown error';
+    } else {
+      error.value = 'Unexpected API response';
+    }
+  } catch (e) {
+    error.value = 'Unexpected error occurred while fetching data';
+    console.error(e);
+  } finally {
+    loading.value = false;
   }
-  loading.value = false;
 });
 </script>
 
@@ -26,7 +37,7 @@ onMounted(async () => {
     <p v-else-if="error">Error: {{ error }}</p>
     <div v-else>
       <WorkItemTable title="Ready" :items="data?.ready ?? []"/>
-      <WorkItemTable title="In Progress" :items="data?.inProgress ?? []"/>
+      <WorkItemTable title="In Progress" :items="data?.in_progress ?? []"/>
       <WorkItemTable title="Completed" :items="data?.completed ?? []"/>
     </div>
   </div>
