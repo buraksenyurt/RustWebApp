@@ -10,7 +10,13 @@
 			"name": "Get All Work Items",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "APPLICATION_TOKEN_1234",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:3000/",
 					"protocol": "http",
@@ -29,7 +35,13 @@
 			"name": "Get All Work Items By Status",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "APPLICATION_TOKEN_1234",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:3000/filter/by/status/completed",
 					"protocol": "http",
@@ -51,7 +63,13 @@
 			"name": "Get All Work Items By Size Grater and Equal Than",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "APPLICATION_TOKEN_1234",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:3000/filter/by/size/8",
 					"protocol": "http",
@@ -73,7 +91,13 @@
 			"name": "Get Work Item By Key(Title)",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "APPLICATION_TOKEN_1234",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:3000/Clean%20the%20room",
 					"protocol": "http",
@@ -92,7 +116,13 @@
 			"name": "Delete Work Item By Key(Title)",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "APPLICATION_TOKEN_1234",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:3000/Add login screen to frontend",
 					"protocol": "http",
@@ -111,7 +141,13 @@
 			"name": "Create new Work Item",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "APPLICATION_TOKEN_1234",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"title\": \"Add login screen to frontend\",\r\n    \"size\": 8,\r\n    \"status\": \"Ready\"\r\n}",

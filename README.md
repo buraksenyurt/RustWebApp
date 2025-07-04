@@ -75,3 +75,5 @@ Hata nesnelerinin modüllere uyarlanmasını takiben server api tarafındaki tü
 ![Runtime_06.png](Runtime_06.png)
 
 ![Runtime_07.png](Runtime_07.png)
+
+Ayrıca header bazlı çalışan basit bir token mekanizması da sisteme entegre edilir.
