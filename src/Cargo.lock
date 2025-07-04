@@ -890,7 +890,6 @@ dependencies = [
 name = "ingress"
 version = "0.1.0"
 dependencies = [
- "actix-cors",
  "actix-web",
  "mime_guess",
  "rust-embed",
@@ -1329,6 +1328,7 @@ dependencies = [
 name = "server"
 version = "0.1.0"
 dependencies = [
+ "actix-cors",
  "actix-web",
  "core",
  "dotenvy",

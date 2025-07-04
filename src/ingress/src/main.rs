@@ -1,4 +1,3 @@
-use actix_cors::Cors;
 use actix_web::{App, HttpRequest, HttpResponse, HttpServer, Responder, web};
 use rust_embed::RustEmbed;
 use server::api::configure_routes;
@@ -7,14 +6,8 @@ use server::api::configure_routes;
 async fn main() -> std::io::Result<()> {
     println!("Server is running on: localhost:8001");
     HttpServer::new(|| {
-        let cors = Cors::default()
-            .allow_any_origin()
-            .allow_any_method()
-            .allow_any_header();
-
         App::new()
             .configure(configure_routes)
-            .wrap(cors)
             .default_service(web::route().to(handle_all))
     })
     .bind("0.0.0.0:8001")?
