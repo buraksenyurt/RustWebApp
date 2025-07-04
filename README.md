@@ -80,4 +80,17 @@ Ayrıca header bazlı çalışan basit bir token mekanizması da sisteme entegre
 
 ## Day_04
 
-Vue tabanlı web tarafı geliştirilmeye başlanır. Günün sonunda work item listesinin ana sayfada çıkması beklenir.
+Kitap web uygulaması tarafında React ve ESBuild kullanarak ilerlemekte. Ben frontend framework olarak Vue ve build aracı olarak da vite _(Build, Bundler ve Dev Server aracı)_ kullanıyorum.
+
+```bash
+# Uygulamayı çalıştırmak için önce dist klasörüne build edilen içeriğin çıkması gerekiyor.
+# web klasöründeyken aşağıdaki komut işletilir
+yarn build
+
+# Sonrasında ingress klasöründeyken rust uygulaması başlatılır.
+cargo run
+```
+
+İlk versiyonda localhost:8001 adresine gidildiğinde App.vue içeriğinin gösterilmesi beklenir.
+
+![Runtime_08.png](Runtime_08.png)
